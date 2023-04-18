@@ -4,8 +4,8 @@ import buildUrl, { IQueryParams } from 'build-url-ts'
 import URLParse from 'url-parse'
 import { Authorization, TauriAxiosRequestConfig } from './type'
 
-export const base64Decode = (str: string): string => Buffer.from(str, 'base64').toString('binary')
-export const base64Encode = (str: string): string => Buffer.from(str, 'binary').toString('base64')
+export const base64Decode = (str: string): string => atob(str)
+export const base64Encode = (str: string): string => btoa(str)
 
 export function buildBasicAuthorization(basicCredentials: AxiosBasicCredentials): Authorization {
   const username = basicCredentials.username || ''
